@@ -1,0 +1,157 @@
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-28 09:49:40,601 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1461793777014/jmoravec_localhost1886376373575853892.zip
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-28 09:49:41,297 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [Thread-24] 2016-04-28 09:49:56,023 repast.simphony.batch.ssh.LocalSession - ERROR [main] 09:49:56,011 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-24] 2016-04-28 09:49:56,024 repast.simphony.batch.ssh.LocalSession - java.lang.ArrayIndexOutOfBoundsException: 1
+INFO  [Thread-24] 2016-04-28 09:49:56,024 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.parameter.ParameterLineParser.parse(ParameterLineParser.java:55)
+INFO  [Thread-24] 2016-04-28 09:49:56,024 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:193)
+INFO  [Thread-24] 2016-04-28 09:49:56,024 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
+INFO  [AWT-EventQueue-0] 2016-04-28 09:50:38,446 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/jmoravec/workspace/simple_model/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-28 09:50:38,450 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/jmoravec/workspace/simple_model/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [pool-2-thread-1] 2016-04-28 09:50:41,311 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1461793777014 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2016-04-28 09:50:41,311 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0118
+ERROR [SwingWorker-pool-1-thread-1] 2016-04-28 09:50:41,326 repast.simphony.batch.ssh.SessionsDriver - Error while finding default output file names
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:215)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:145)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:116)
+	at repast.simphony.batch.ssh.SessionsDriver.concatenateOutput(SessionsDriver.java:151)
+	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:78)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:296)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at javax.swing.SwingWorker.run(SwingWorker.java:335)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:50:45,594 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/jmoravec_localhost8439426137974971109.zip to 
+/tmp/simphony_model_1461793842735 ...
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:50:46,110 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:50:46,111 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0562
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:50:46,111 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1461793842735/jmoravec_localhost8439426137974971109.zip
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:50:46,980 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [Thread-25] 2016-04-28 09:50:59,877 repast.simphony.batch.ssh.LocalSession - ERROR [main] 09:50:59,871 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-25] 2016-04-28 09:50:59,877 repast.simphony.batch.ssh.LocalSession - java.lang.ArrayIndexOutOfBoundsException: 1
+INFO  [Thread-25] 2016-04-28 09:50:59,877 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.parameter.ParameterLineParser.parse(ParameterLineParser.java:55)
+INFO  [Thread-25] 2016-04-28 09:50:59,877 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:193)
+INFO  [Thread-25] 2016-04-28 09:50:59,878 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
+INFO  [Thread-25] 2016-04-28 09:51:00,627 repast.simphony.batch.ssh.LocalSession - ERROR [main] 09:51:00,624 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-25] 2016-04-28 09:51:00,627 repast.simphony.batch.ssh.LocalSession - java.lang.ArrayIndexOutOfBoundsException: 1
+INFO  [Thread-25] 2016-04-28 09:51:00,627 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.parameter.ParameterLineParser.parse(ParameterLineParser.java:55)
+INFO  [Thread-25] 2016-04-28 09:51:00,627 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:193)
+INFO  [Thread-25] 2016-04-28 09:51:00,627 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
+INFO  [pool-3-thread-1] 2016-04-28 09:51:46,981 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1461793842735 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:46,982 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0145
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:46,998 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1461793842735
+WARN  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:47,041 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1461793842735/instance_2
+WARN  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:47,042 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1461793842735/instance_1
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:47,042 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/jmoravec/workspace/simple_model/output
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:47,046 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0010
+INFO  [SwingWorker-pool-1-thread-2] 2016-04-28 09:51:47,047 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.0722
+INFO  [AWT-EventQueue-0] 2016-04-28 12:04:54,996 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/jmoravec/workspace/simple_model/output/config.props
+INFO  [AWT-EventQueue-0] 2016-04-28 12:04:55,000 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/jmoravec/workspace/simple_model/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:05:02,215 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/jmoravec_localhost372840677779604539.zip to 
+/tmp/simphony_model_1461801899340 ...
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:05:02,511 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:05:02,512 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0529
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:05:02,512 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1461801899340/jmoravec_localhost372840677779604539.zip
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:05:03,089 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [Thread-26] 2016-04-28 12:05:16,803 repast.simphony.batch.ssh.LocalSession - ERROR [main] 12:05:16,798 repast.simphony.batch.InstanceRunner - Error while running model
+INFO  [Thread-26] 2016-04-28 12:05:16,803 repast.simphony.batch.ssh.LocalSession - java.lang.ArrayIndexOutOfBoundsException: 1
+INFO  [Thread-26] 2016-04-28 12:05:16,803 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.parameter.ParameterLineParser.parse(ParameterLineParser.java:55)
+INFO  [Thread-26] 2016-04-28 12:05:16,803 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:193)
+INFO  [Thread-26] 2016-04-28 12:05:16,803 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
+INFO  [pool-4-thread-1] 2016-04-28 12:06:03,091 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1461801899340 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,091 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0096
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,094 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1461801899340
+WARN  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,099 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1461801899340/instance_2
+WARN  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,100 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1461801899340/instance_1
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,100 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/jmoravec/workspace/simple_model/output
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,127 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0005
+INFO  [SwingWorker-pool-1-thread-3] 2016-04-28 12:06:03,127 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.0633
+ERROR [AWT-EventQueue-0] 2016-05-02 10:47:37,311 repast.simphony.ui.RSApplication - Error while initializing simulation
+repast.simphony.parameter.IllegalParameterException: Parameter 'yearly_warfare_mortality' not found in the schema.
+	at repast.simphony.parameter.DefaultParameters.getValue(DefaultParameters.java:213)
+	at simple_model.Parameters.init_params(Parameters.java:9)
+	at simple_model.simple_model_builder.build(simple_model_builder.java:50)
+	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
+	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
+	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
+	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
+	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
+	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
+	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
+	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
+	at repast.simphony.ui.RSApplication.initSim(RSApplication.java:157)
+	at repast.simphony.ui.action.InitRun.actionPerformed(InitRun.java:17)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:289)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:747)
+	at java.awt.EventQueue.access$300(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:706)
+	at java.awt.EventQueue$3.run(EventQueue.java:704)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.awt.EventQueue$4.run(EventQueue.java:718)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:717)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+FATAL [Thread-6] 2016-05-02 15:00:18,857 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (1.0)
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at repast.simphony.engine.schedule.CallBackAction.execute(CallBackAction.java:129)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:231)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.reflect.InvocationTargetException
+	at simple_model.simple_model_builder$$FastClassByCGLIB$$88e9e90a.invoke(<generated>)
+	at net.sf.cglib.reflect.FastMethod.invoke(FastMethod.java:53)
+	at repast.simphony.engine.schedule.CallBackAction.execute(CallBackAction.java:127)
+	... 6 more
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	warfare_loses cannot be resolved or is not a field
+
+	at simple_model.Residence.change_residence_test_warfare(Residence.java:110)
+	at simple_model.Residence.change_residence_test(Residence.java:94)
+	at simple_model.Village.change_residence_test(Village.java:131)
+	at simple_model.Residence.change_all(Residence.java:66)
+	at simple_model.Step.step(Step.java:18)
+	at simple_model.simple_model_builder.step(simple_model_builder.java:64)
+	... 9 more

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+	<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+		defaultValue="__NULL__"
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+		/>
+
+	<parameter name="growth_rate" displayName="growth_rate" type="double" 
+		defaultValue="0.01" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+		/>
+
+	<parameter name="newborn_male_bias" displayName="newborn_male_bias"
+		type="int" 
+		defaultValue="116" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+		/>
+
+	<parameter name="warfare_pressure" displayName="warfare_pressure" type="int" 
+		defaultValue="2000" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+		/>
+
+	<parameter name="yearly_warfare_mortality" displayName="yearly_warfare_mortality"
+		type="double" 
+		defaultValue="0.00472" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+	/>
+
+
+	<parameter name="preferred_marriage_weight" displayName="preferred_marriage_weight"
+		type="double" 
+		defaultValue="0.9" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+	/>
+
+		
+	<parameter name="change_residence_pause" displayName="change_residence_pause" type="int" 
+		defaultValue="6" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+	/>
+	
+</parameters>
+
+
