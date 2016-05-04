@@ -2,44 +2,30 @@
   <name>ModelStats</name>
   <type>NON_AGGREGATE</type>
   <sourceType>simple_model.Stats</sourceType>
-  <inclTick>false</inclTick>
+  <inclTick>true</inclTick>
   <inclBatchRun>true</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>1000.0</start>
-    <interval>0.0</interval>
+    <start>1</start>
+    <interval>1</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>ONE_TIME</frequency>
+    <frequency>REPEAT</frequency>
     <hashCode>803750302</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
+
     <entry>
-      <string>first_total_switch</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>first_total_switch</id>
-        <className>simple_model.Stats</className>
-        <methodName>get_first_total_switch</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>time_of_extinction</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>time_of_extinction</id>
-        <className>simple_model.Stats</className>
-        <methodName>get_time_of_extinction</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>mean_distance_to_zone</string>
+        <string>mean_distance_to_zone</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>mean_distance_to_zone</id>
         <className>simple_model.Stats</className>
         <methodName>mean_distance_to_zone</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    
     <entry>
       <string>number_of_switches</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
@@ -48,6 +34,7 @@
         <methodName>number_of_switches</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    
     <entry>
       <string>total_population</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>

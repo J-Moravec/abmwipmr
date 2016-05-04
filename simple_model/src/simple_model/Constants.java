@@ -15,12 +15,12 @@ public class Constants {
 	public static int marry_cohort = 5;
 	public static int[] warrior_cohorts = new int[] {0, 0, 0, 1, 1, 1, 1, 1, 0, 0}; //cohorts that fight
 	public static int start_pop = 10; //needs "heating" period without warfare to get good population structure
-	public static double number_of_generations = 1000;
-	public static double warming_phase = 500;
+	public static double number_of_generations = 5100;
+	public static double warming_phase = 100;
 	
 	//temporally fixed
 	public static int carrying_capacity = 500;
-	public static int X_communities=10; //fixed, like capacity of environment (possible parametrisation to explore effect of population size)
+	public static int X_communities=5; //fixed, like capacity of environment (possible parametrisation to explore effect of population size)
 	public static int Y_communities=10; //fixed, like capacity of environment (possible parametrisation to explore effect of population size and zone size)
 		
 	

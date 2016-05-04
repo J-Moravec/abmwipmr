@@ -18,6 +18,6 @@ public class Step {
 		Residence.change_all(village_list);
 		
 		//Compute stats
-		Stats.every_step_stats(village_list);
+		//Stats.every_step_stats(village_list);
 		}
 	}

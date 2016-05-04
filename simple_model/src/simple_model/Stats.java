@@ -1,5 +1,6 @@
 package simple_model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import repast.simphony.essentials.RepastEssentials;
@@ -13,8 +14,8 @@ public class Stats {
 	}
 
 	public static void every_step_stats(List<Village> village_list) {
-		calculate_first_total_switch(village_list);
-		calculate_time_of_extinction(village_list);
+		//calculate_first_total_switch(village_list);
+		//calculate_time_of_extinction(village_list);
 
 	}
 	
@@ -129,5 +130,62 @@ public class Stats {
 		}
 		
 		return Utils.round(n_males/total_population(),2);
+	}
+	
+	
+	public List<Village> build_network(List<Village> unassigned_villages){
+		List<Village> network = new ArrayList<Village>();
+		// assign first item from unassigned_villages into network
+		//and delete it from unassigned_village
+		network.add(unassigned_villages.get(0));
+		unassigned_villages.remove(0);
+		
+		while (true) {
+			List<Village> neighbours = get_all_neighbours(network);
+			List<Village> new_items = search_for_neighbours(neighbours, unassigned_villages);
+			if(new_items.size() == 0){
+				break;
+			}
+			network.addAll(new_items);
+			unassigned_villages.removeAll(new_items);
+		}
+		return network;
+	}
+	
+	
+	private List<Village> search_for_neighbours(
+			List<Village> neighbours, List<Village> unassigned_villages
+			) {
+		List<Village> new_items = new ArrayList<Village>();
+		for(Village village : unassigned_villages){
+			if(neighbours.contains(village)){
+				new_items.add(village);
+			}
+		}
+		return new_items;
+	}
+
+	
+	private List<Village> get_all_neighbours(List<Village> network) {
+		List<Village> neighbours = new ArrayList<Village>();
+		for(Village village : network){
+			for(Village neighbour : village.neighbours){
+				if(!neighbours.contains(neighbour)){
+					neighbours.add(neighbour);
+				}
+			}	
+		}
+		return neighbours;
+	}
+
+	
+	
+	public List<List<Village>> get_networks(){
+		List<Village> unassigned_villages = new ArrayList<Village>(Village.village_list);
+		List<List<Village>> networks = new ArrayList<List<Village>>();
+		while (unassigned_villages.size() > 0){
+			networks.add(build_network(unassigned_villages));
+		}
+		return networks;
 	}
 }

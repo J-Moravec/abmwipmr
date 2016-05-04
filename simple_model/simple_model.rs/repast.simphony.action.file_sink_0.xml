@@ -8,8 +8,6 @@
     <string>village_count</string>
     <string>total_population</string>
     <string>number_of_switches</string>
-    <string>time_of_extinction</string>
-    <string>first_total_switch</string>
     <string>mean_distance_to_zone</string>
     <string>var_distance_to_zone</string>
     <string>matrilocal_proportion</string>

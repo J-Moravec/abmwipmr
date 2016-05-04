@@ -12,6 +12,6 @@
     <string>SettingsRegistryId</string>
     <string>Repast.registry</string>
     <string>LastLoadedScenario</string>
-    <string>/home/jmoravec/workspace/simple_model/simple_model.rs</string>
+    <string>/home/jmoravec/git/simple_model/simple_model/simple_model.rs</string>
   </hashtable>
 </simphony.settings.SettingsRegistry>

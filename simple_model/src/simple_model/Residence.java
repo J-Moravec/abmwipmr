@@ -111,7 +111,6 @@ public enum Residence {
 		if(village.in_zone && village.residence == Residence.PATRILOCAL && RunEnvironment.getInstance().getCurrentSchedule().getTickCount() > Constants.warming_phase){
 			double prob = Constants.warfare_loses / ((double) Warfare.total_warriors(village));
 			prob = Math.min(1, prob);
-			System.out.println("warfare_loses: " + Constants.warfare_loses + " probability: " + prob);
 			if(Utils.random_roll(prob) == 1){
 				result = true;
 			}
