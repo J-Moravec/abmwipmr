@@ -1,7 +1,7 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>ModelStats</name>
+  <name>Clusters</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>simple_model.Stats</sourceType>
+  <sourceType>simple_model.Cluster</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>true</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
@@ -12,80 +12,64 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>803750302</hashCode>
+    <hashCode>-879698585</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>mean_distance_to_zone</string>
+      <string>village_count</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>mean_distance_to_zone</id>
-        <className>simple_model.Stats</className>
-        <methodName>mean_distance_to_zone</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>number_of_switches</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>number_of_switches</id>
-        <className>simple_model.Stats</className>
-        <methodName>number_of_switches</methodName>
+        <id>village_count</id>
+        <className>simple_model.Cluster</className>
+        <methodName>village_count</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
       <string>total_population</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>total_population</id>
-        <className>simple_model.Stats</className>
+        <className>simple_model.Cluster</className>
         <methodName>total_population</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>proportion_of_males</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>proportion_of_males</id>
+        <className>simple_model.Cluster</className>
+        <methodName>proportion_of_males</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>proportion_of_matrilocal</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>proportion_of_matrilocal</id>
+        <className>simple_model.Cluster</className>
+        <methodName>proportion_of_matrilocal</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>proportion_of_warriors</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>proportion_of_warriors</id>
+        <className>simple_model.Cluster</className>
+        <methodName>proportion_of_warriors</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>mean_distance_to_zone</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>mean_distance_to_zone</id>
+        <className>simple_model.Cluster</className>
+        <methodName>mean_distance_to_zone</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
       <string>var_distance_to_zone</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>var_distance_to_zone</id>
-        <className>simple_model.Stats</className>
+        <className>simple_model.Cluster</className>
         <methodName>var_distance_to_zone</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>village_count</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>village_count</id>
-        <className>simple_model.Stats</className>
-        <methodName>village_count</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>matrilocal_proportion</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>matrilocal_proportion</id>
-        <className>simple_model.Stats</className>
-        <methodName>proportion_of_matrilocal</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>males_proportion</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>males_proportion</id>
-        <className>simple_model.Stats</className>
-        <methodName>proportion_of_males</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>warrior_proportion</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>warrior_proportion</id>
-        <className>simple_model.Stats</className>
-        <methodName>proportion_of_warriors</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>number_of_networks</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>number_of_networks</id>
-        <className>simple_model.Stats</className>
-        <methodName>number_of_networks</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

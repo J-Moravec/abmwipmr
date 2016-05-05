@@ -2,6 +2,8 @@ package simple_model;
 
 import java.util.List;
 
+import repast.simphony.util.ContextUtils;
+
 public class Initialize {
 
 	

@@ -8,6 +8,8 @@ import repast.simphony.essentials.RepastEssentials;
 public class Stats {
 	public static int first_total_switch = 0;
 	public static int time_of_extinction = 0;
+	public static List<List<Village>> cluster_list;
+	public static List<Cluster> list_of_clusters;
 	
 	public Stats(){
 		//because Repast do not like static functions
@@ -16,9 +18,19 @@ public class Stats {
 	public static void every_step_stats(List<Village> village_list) {
 		//calculate_first_total_switch(village_list);
 		//calculate_time_of_extinction(village_list);
-
+		cluster_list = get_networks();
+		list_of_clusters = make_list_of_clusters(cluster_list);
 	}
 	
+	private static List<Cluster> make_list_of_clusters(
+			List<List<Village>> cluster_list2) {
+		List<Cluster> list_of_clusters = new ArrayList<Cluster>();
+		for(List<Village> village_list : cluster_list2){
+			list_of_clusters.add(new Cluster(village_list));
+		}
+		return list_of_clusters;
+	}
+
 	public static void calculate_first_total_switch(List<Village> village_list){
 		if(Stats.first_total_switch == 0){
 			boolean patrilocal = false;
@@ -111,8 +123,12 @@ public class Stats {
 		return Stats.time_of_extinction;
 	}
 	
-	
+
 	public double proportion_of_matrilocal(){
+		if(Village.village_list.size() == 0){
+			return 0;
+		}
+		
 		double n_matri = 0;
 		for(Village village : Village.village_list){
 			if(village.residence == Residence.MATRILOCAL){
@@ -124,6 +140,10 @@ public class Stats {
 	
 	
 	public double proportion_of_males(){
+		if(Village.village_list.size() == 0){
+			return 0;
+		}
+		
 		double n_males = 0;
 		for(Village village : Village.village_list){
 			n_males += Utils.sum_vec(village.cohorts_male);
@@ -133,7 +153,7 @@ public class Stats {
 	}
 	
 	
-	public List<Village> build_network(List<Village> unassigned_villages){
+	public static List<Village> build_network(List<Village> unassigned_villages){
 		List<Village> network = new ArrayList<Village>();
 		// assign first item from unassigned_villages into network
 		//and delete it from unassigned_village
@@ -153,7 +173,7 @@ public class Stats {
 	}
 	
 	
-	private List<Village> search_for_neighbours(
+	private static List<Village> search_for_neighbours(
 			List<Village> neighbours, List<Village> unassigned_villages
 			) {
 		List<Village> new_items = new ArrayList<Village>();
@@ -166,11 +186,11 @@ public class Stats {
 	}
 
 	
-	private List<Village> get_all_neighbours(List<Village> network) {
+	private static List<Village> get_all_neighbours(List<Village> network) {
 		List<Village> neighbours = new ArrayList<Village>();
 		for(Village village : network){
 			for(Village neighbour : village.neighbours){
-				if(!neighbours.contains(neighbour)){
+				if(!neighbours.contains(neighbour) && neighbour.total_pop() > 0){
 					neighbours.add(neighbour);
 				}
 			}	
@@ -180,12 +200,28 @@ public class Stats {
 
 	
 	
-	public List<List<Village>> get_networks(){
+	public static List<List<Village>> get_networks(){
 		List<Village> unassigned_villages = new ArrayList<Village>(Village.village_list);
 		List<List<Village>> networks = new ArrayList<List<Village>>();
 		while (unassigned_villages.size() > 0){
 			networks.add(build_network(unassigned_villages));
 		}
 		return networks;
+	}
+	
+	public int number_of_networks(){
+		return(cluster_list.size());
+	}
+	
+	public double proportion_of_warriors(){
+		if(Village.village_list.size() == 0){
+			return 0;
+		}
+		
+		int n_warriors = 0;
+		for(Village village : Village.village_list){
+			n_warriors += Warfare.total_warriors(village);
+		}
+		return Utils.round(n_warriors/total_population(), 2);
 	}
 }
