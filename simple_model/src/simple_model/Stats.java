@@ -218,7 +218,7 @@ public class Stats {
 			return 0;
 		}
 		
-		int n_warriors = 0;
+		double n_warriors = 0;
 		for(Village village : Village.village_list){
 			n_warriors += Warfare.total_warriors(village);
 		}

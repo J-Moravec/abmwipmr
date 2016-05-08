@@ -16,6 +16,25 @@
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
+
+    <entry>
+      <string>mean_x</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>mean_x</id>
+        <className>simple_model.Cluster</className>
+        <methodName>mean_x</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    
+    <entry>
+      <string>mean_y</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>mean_y</id>
+        <className>simple_model.Cluster</className>
+        <methodName>mean_y</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>  
+  
     <entry>
       <string>village_count</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>

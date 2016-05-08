@@ -75,12 +75,10 @@ public class Cluster {
 	
 	
 	public double proportion_of_warriors(){
-		int n_warriors = 0;
+		double n_warriors = 0;
 		for(Village village : this.cluster_list){
 			n_warriors += Warfare.total_warriors(village);
 		}
-		System.out.println(n_warriors);
-		System.out.println(Utils.round(n_warriors/this.total_population(), 2));
 		return Utils.round(n_warriors/this.total_population(), 2);
 	}
 
@@ -95,5 +93,23 @@ public class Cluster {
 	public static void add_to_context(Context<Object> context) {
 		context.addAll(Stats.list_of_clusters);
 		
+	}
+	
+	
+	public double mean_x(){
+		double mean_x = 0;
+		for(Village village : this.cluster_list){
+			mean_x += village.coord_x;
+		}
+		return(Utils.round(mean_x/this.cluster_list.size(), 2));
+	}
+	
+	
+	public double mean_y(){
+		double mean_y = 0;
+		for(Village village : this.cluster_list){
+			mean_y += village.coord_y;
+		}
+		return(Utils.round(mean_y/this.cluster_list.size(), 2));
 	}
 }

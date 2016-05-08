@@ -2,4 +2,7 @@
 ModelOutput*
 debug.log*
 velocity.log*
-ClusterStats*
+ClustersStats*
+/output
+ssh_remote_model.log
+*.log

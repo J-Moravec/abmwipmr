@@ -5,6 +5,7 @@
   <format>TABULAR</format>
   <sourceIds class="linked-hash-set">
     <string>run</string>
+    <string>tick</string>
     <string>village_count</string>
     <string>total_population</string>
     <string>number_of_switches</string>
