@@ -2,13 +2,11 @@ package simple_model;
 
 import java.util.List;
 
-import repast.simphony.util.ContextUtils;
-
 public class Initialize {
 
 	
 	
-	public static void init(List<Village> village_list, Village[][] helper_grid){
+	public static void init(Village_list village_list, Village[][] helper_grid){
 		//initialize starting conditions.
 		//Villages that are on left are on war zone
 		//set population to all villages to Constants.start_pop

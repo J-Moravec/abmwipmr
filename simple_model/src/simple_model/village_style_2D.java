@@ -28,7 +28,7 @@ public class village_style_2D extends DefaultStyleOGL2D {
 	public Color getColor(Object agent){
 		if (agent instanceof Village){
 			Village village = (Village) agent;
-			if(village.residence == Residence.PATRILOCAL){
+			if(village.get_residence() == Residence.PATRILOCAL){
 				return Color.blue;
 			} else {
 				return Color.RED;

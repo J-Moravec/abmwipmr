@@ -3,10 +3,7 @@
  */
 package simple_model;
 
-import java.util.List;
-
 import cern.jet.random.Binomial;
-import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.random.RandomHelper;
 
 /**
@@ -38,49 +35,49 @@ public class Growth {
 	 *  it is a little bit
 	 *  different.
 	 */
-	public static void growth(Village village) {
+	public void growth(Village village) {
 		int[] new_cohorts_male = new int[Constants.cohorts_num];
 		int[] new_cohorts_female = new int[Constants.cohorts_num];
+		int[] new_cohorts_pairs = new int[Constants.cohorts_num];
 		
 		//newborns
-		int[] full_pairs = village.full_pairs();
-		int total_pop = village.total_pop();
-		int total_newborns = Utils.prob_round(
-				Utils.vec_multiply(Constants.growth_rate_vec, full_pairs)
-				* (1 - ((double) total_pop) / Constants.carrying_capacity)
-				);
-		int newborn_males = newborn_males(total_newborns);
-		int newborn_females = total_newborns - newborn_males;
+		int newborns = get_newborns(village);
+		int newborn_males = get_male_newborns(newborns);
+		int newborn_females = newborns - newborn_males;
 		new_cohorts_male[0] = newborn_males;
 		new_cohorts_female[0] = newborn_females;
 		
 		//others
-		if(village.in_zone && RunEnvironment.getInstance().getCurrentSchedule().getTickCount() > Constants.warming_phase){
-			int[] warfare_loses = Warfare.warfare_loses(village);
-			int total_warriors = Warfare.total_warriors(village);
-			int total_loses = Utils.sum_vec(warfare_loses);
-			if(total_warriors == total_loses){
-				for(int i=0; i < Constants.cohorts_num; i++){
-					new_cohorts_male[i] = 0;
-					new_cohorts_female[i] = 0;
-				}
-			} else {
-				for(int i=1; i < Constants.cohorts_num; i++){
-					new_cohorts_male[i] = village.cohorts_male[i-1] - warfare_loses[i-1];
-					new_cohorts_female[i] = village.cohorts_female[i-1];				
-				}
+		// Before warming phase, there are no warfare deaths. After warming phase, warfare deaths are allowed:
+		if(village.in_zone && Utils.get_tick_count() > Constants.warming_phase){
+			Loses warfare_loses = village.get_warfare_loses();
+			for(int i=1; i < Constants.cohorts_num; i++){
+				new_cohorts_male[i] = village.cohorts_male[i-1] - warfare_loses.single_warrior_loses[i-1];
+				new_cohorts_pairs[i] = village.cohorts_pairs[i-1] - warfare_loses.married_warrior_loses[i-1];
+				new_cohorts_female[i] = village.cohorts_female[i-1] + warfare_loses.married_warrior_loses[i-1];
+				// pair transform into single females when male from pair dies
 			}
-
 		} else {
 			for(int i = 1; i < Constants.cohorts_num; i++){
 				new_cohorts_male[i] = village.cohorts_male[i-1];
 				new_cohorts_female[i] = village.cohorts_female[i-1];
+				new_cohorts_pairs[i] = village.cohorts_pairs[i-1];
 			}
 		}
 		village.cohorts_male = new_cohorts_male;
 		village.cohorts_female = new_cohorts_female;
+		village.cohorts_pairs = new_cohorts_pairs;
 	}
 
+	
+	private int get_newborns(Village village){
+		int total_pop = village.total_pop();
+		int newborns = Utils.prob_round(
+				Utils.vec_multiply(Constants.growth_rate_vec, village.cohorts_pairs)
+				* (1 - ((double) total_pop) / Constants.carrying_capacity)
+				);
+		return(newborns);
+	}
 	
 	/** newborn_males
 	 * 
@@ -91,7 +88,7 @@ public class Growth {
 	 *  Returns number of newborn males. Number of newborn females is calculated later as:
 	 *  newborn_females = total_newborns - newborn_males
 	 */
-	public static int newborn_males(int total_newborns){
+	public int get_male_newborns(int total_newborns){
 		if(total_newborns == 0){
 			return 0;
 		}
@@ -101,12 +98,4 @@ public class Growth {
 		int num_males = binomial.nextInt();
 		return num_males;
 	}
-
-	
-	public static void grow_all(List<Village> village_list) {
-		for (Village village : village_list){
-			village.grow();
-		}
-	}
-
 }

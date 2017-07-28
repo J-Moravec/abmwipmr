@@ -57,7 +57,7 @@ public class Cluster {
 	public double proportion_of_matrilocal(){
 		double n_matri = 0;
 		for(Village village : this.cluster_list){
-			if(village.residence == Residence.MATRILOCAL){
+			if(village.get_residence() == Residence.MATRILOCAL){
 				n_matri +=1;
 			}
 		}
@@ -77,7 +77,7 @@ public class Cluster {
 	public double proportion_of_warriors(){
 		double n_warriors = 0;
 		for(Village village : this.cluster_list){
-			n_warriors += Warfare.total_warriors(village);
+			n_warriors += village.get_total_warriors();
 		}
 		return Utils.round(n_warriors/this.total_population(), 2);
 	}

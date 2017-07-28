@@ -11,8 +11,8 @@ public class Constants {
 	
 	//fixed parameters
 	public static int cohorts_num = 10;
-	public static double[] growth_cohorts = new double[] {0, 0, 0, 1, 1, 1, 1, 1, 0, 0}; //cohorts that produce offsprings
-	public static int marry_cohort = 5;
+	public static double[] growth_cohorts = new double[] {0, 0, 0, 0, 1, 1, 1, 1, 0, 0}; //cohorts that produce offsprings; not used?
+	public static int marry_cohort = 4;
 	public static int[] warrior_cohorts = new int[] {0, 0, 0, 1, 1, 1, 1, 1, 0, 0}; //cohorts that fight
 	public static int start_pop = 10; //needs "heating" period without warfare to get good population structure
 	public static double number_of_generations = 1100;

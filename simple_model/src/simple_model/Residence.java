@@ -1,9 +1,5 @@
 package simple_model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import repast.simphony.engine.environment.RunEnvironment;
 
 public enum Residence {
 	MATRILOCAL, PATRILOCAL;
@@ -55,25 +51,6 @@ public enum Residence {
 		return marriage_weight;
 	}
 	
-	/** change_all
-	 * 
-	 *  Function describe change of residence for all villages in community.
-	 *  First, change for every individual village is tested and if test is true, residences are
-	 *  later changed. This is done in two cycles as change_residence_test is dependent on
-	 *  neighbours.
-	 */
-	public static void change_all(List<Village> village_list) {
-		List<Village> changing_residence = new ArrayList<Village>();
-		for(Village village : village_list){
-			if(village.change_residence_test()){
-				changing_residence.add(village);
-			}
-		}
-		
-		for(Village village : changing_residence){
-			village.change_residence();
-		}
-	}
 
 	/** change_residence_test
 	 * 
@@ -85,7 +62,7 @@ public enum Residence {
 	 *     amount of potential partners with alternative residence.
 	 * 
 	 */
-	public static boolean change_residence_test(Village village) {
+	public boolean change_residence_test(Village village) {
 		boolean change = false;
 		if(village.changed_residence > 0){
 			village.changed_residence -=1;
@@ -106,10 +83,10 @@ public enum Residence {
 	 * 
 	 * This change is performed only for patrilocal villages in zone.
 	 */
-	private static boolean change_residence_test_warfare(Village village) {
+	private boolean change_residence_test_warfare(Village village) {
 		boolean result = false;
-		if(village.in_zone && village.residence == Residence.PATRILOCAL && RunEnvironment.getInstance().getCurrentSchedule().getTickCount() > Constants.warming_phase){
-			double prob = Constants.warfare_loses / ((double) Warfare.total_warriors(village));
+		if(village.in_zone && village.get_residence() == Residence.PATRILOCAL && Utils.get_tick_count() > Constants.warming_phase){
+			double prob = Constants.warfare_loses / ((double) village.get_total_warriors());
 			prob = Math.min(1, prob);
 			if(Utils.random_roll(prob) == 1){
 				result = true;
@@ -119,50 +96,62 @@ public enum Residence {
 	}
 	
 	
-	private static boolean change_residence_test_partners(Village village){
+	private boolean change_residence_test_partners(Village village){
 		boolean result = false;
-		
-		double total_male_partners = 0;
-		double total_female_partners = 0;
-		double total_male_partners_alt = 0;
-		double total_female_partners_alt = 0;
-		double partners;
-		double partners_alt;
-		
-		double vil_males = village.cohorts_male[Constants.marry_cohort];
-		double vil_females = village.cohorts_female[Constants.marry_cohort];
-		
-		for(Village neighbour : village.neighbours){
-			double marriage_weight =
-					Marriage.marriage_weight(village.residence, neighbour.residence);
-			total_female_partners +=
-					neighbour.cohorts_female[Constants.marry_cohort] * marriage_weight;
-			total_male_partners +=
-					neighbour.cohorts_male[Constants.marry_cohort] * marriage_weight;
-			double marriage_weight_alt =
-					Marriage.marriage_weight(Residence.other(village.residence), neighbour.residence);
-			total_female_partners_alt +=
-					neighbour.cohorts_female[Constants.marry_cohort] * marriage_weight_alt;
-			total_male_partners_alt +=
-					neighbour.cohorts_male[Constants.marry_cohort]* marriage_weight_alt; 
-		}
-		partners = total_male_partners / vil_females + total_female_partners / vil_males;
-		partners_alt = total_male_partners_alt / vil_females
-				+ total_female_partners_alt / vil_males;
-		
-		double prob = 1 - partners/partners_alt;
-		if(prob > 0){
-			int roll = Utils.random_roll(prob);
-			if(roll == 1){
-				result = true;
+		if (village.has_marriable_people()){
+			double total_ratio = get_potential_partners_total_ratio(village);
+			double prob = 1 - total_ratio;
+			if(prob > 0){
+				int roll = Utils.random_roll(prob);
+				if(roll == 1){
+					result = true;
+				}
 			}
 		}
 		return result;
 	}
 
+	
+	private double get_potential_partners_total_ratio(Village village){
+		double total_ratio = 0;
+		for(int cohort = Constants.marry_cohort; cohort < Constants.cohorts_num; cohort++){
+			total_ratio += get_potential_partners_ratio(village, Gender.MALE, cohort);
+			total_ratio += get_potential_partners_ratio(village, Gender.FEMALE, cohort);
+		}
+		total_ratio = total_ratio/village.get_marriable_people(); //TODO danger of division by zero
+		return(total_ratio);
+	}
 
-	public static void change(Village village) {
-		village.residence = other(village.residence);
+	
+	private double get_potential_partners_ratio(Village source, Gender gender, int cohort){
+		double current_partners = 0;
+		double alternative_partners = 0;
+		Gender other_gender = Gender.other(gender);
+		for(Village neighbour : source.neighbours){
+			Residence residence = source.get_residence();
+			Residence alternative_residence = Residence.other(residence);
+			current_partners += get_potential_partners(neighbour, residence, gender, cohort);
+			alternative_partners += get_potential_partners(
+					neighbour, alternative_residence, gender, cohort
+					);
+			}
+		// Correcting constant +1
+		// Since negative number of partners is not possible, this enable having zero partners:
+		return source.get_cohort(other_gender, cohort)
+				* (current_partners+ 1 )/(alternative_partners + 1);
+	}
+	
+	
+	private double get_potential_partners(
+			Village target, Residence residence, Gender gender, int cohort
+			){
+		double marriage_weight = Marriage.marriage_weight(residence, target.get_residence());
+		return(target.get_cohort(gender, cohort) * marriage_weight);
+	}
+	
+	
+	public void change(Village village) {
+		village.set_residence(other(village.get_residence()));
 		village.changed_residence = Constants.change_residence_pause;
 		Residence.num_changes +=1;
 	}

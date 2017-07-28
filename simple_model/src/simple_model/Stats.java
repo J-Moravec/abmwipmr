@@ -12,7 +12,7 @@ public class Stats {
 	public static List<Cluster> list_of_clusters;
 	
 	public Stats(){
-		//because Repast do not like static functions
+		//because Repast do not like static functions // WTF was this supposed to mean?
 	}
 
 	public static void every_step_stats(List<Village> village_list) {
@@ -36,7 +36,7 @@ public class Stats {
 			boolean patrilocal = false;
 			//go through all villages and test if they are matrilocal
 			for(Village village : village_list){
-				if(village.residence == Residence.PATRILOCAL){
+				if(village.get_residence() == Residence.PATRILOCAL){
 					patrilocal = true;
 					break;
 				}
@@ -131,7 +131,7 @@ public class Stats {
 		
 		double n_matri = 0;
 		for(Village village : Village.village_list){
-			if(village.residence == Residence.MATRILOCAL){
+			if(village.get_residence() == Residence.MATRILOCAL){
 				n_matri +=1;
 			}
 		}
@@ -146,7 +146,7 @@ public class Stats {
 		
 		double n_males = 0;
 		for(Village village : Village.village_list){
-			n_males += Utils.sum_vec(village.cohorts_male);
+			n_males += Utils.sum_vec(village.cohorts_male) + Utils.sum_vec(village.cohorts_pairs);
 		}
 		
 		return Utils.round(n_males/total_population(),2);
@@ -220,7 +220,7 @@ public class Stats {
 		
 		double n_warriors = 0;
 		for(Village village : Village.village_list){
-			n_warriors += Warfare.total_warriors(village);
+			n_warriors += village.get_total_warriors();
 		}
 		return Utils.round(n_warriors/total_population(), 2);
 	}

@@ -6,6 +6,7 @@ package simple_model;
 import java.util.Arrays;
 
 import cern.jet.random.Uniform;
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.random.RandomHelper;
 
 /** Utils -- class that contains various utilities
@@ -120,6 +121,26 @@ public class Utils {
 	}
 	
 	
+	public static int sum_vec_from(int[] vec, int from){
+		int length = vec.length;
+		int sum = 0;
+		for(int i=from; i< length; i++){
+			sum += vec[i];
+		}
+		return sum;
+	}
+	
+	
+	public static double sum_vec_from(double[] vec, int from){
+		int length = vec.length;
+		double sum = 0;
+		for(int i=from; i< length; i++){
+			sum += vec[i];
+		}
+		return sum;
+	}
+	
+	
 	/** random_roll
 	 * 
 	 * simple probability roll against uniform distibution.
@@ -222,6 +243,7 @@ public class Utils {
 		return sampled_items;
 	}
 	
+	
 	public static int sample_step(int[] sampling_vector){
 		int length = sampling_vector.length;
 		int index = -1;
@@ -256,6 +278,11 @@ public class Utils {
 		double result = value * operator;
 		result = Math.round(result)/operator;
 		return result;
+	}
+	
+	public static double get_tick_count(){
+		double tick_count = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+		return(tick_count);
 	}
 	
 }

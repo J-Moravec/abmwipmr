@@ -1,8 +1,5 @@
 package simple_model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import repast.simphony.context.Context;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactory;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
@@ -32,10 +29,10 @@ public class simple_model_builder implements ContextBuilder<Object> {
 				);
 		
 		Village[][] helper_grid = new Village[Constants.X_communities][Constants.Y_communities];
-		List<Village> village_list = new ArrayList<Village>();
+		Village_list village_list = new Village_list();
 		for(int x = 0; x < Constants.X_communities; x++){
 			for(int y = 0; y < Constants.Y_communities; y++){
-					helper_grid[x][y] = new Village(space, x, y);
+					helper_grid[x][y] = new Village(x, y);
 					village_list.add(helper_grid[x][y]);
 					context.add(helper_grid[x][y]);
 					space.moveTo(
@@ -61,7 +58,7 @@ public class simple_model_builder implements ContextBuilder<Object> {
 		
 		return context;
 	}
-	public void step(List<Village> village_list){
+	public void step(Village_list village_list){
 		Step.step(village_list);
 	}
 }
