@@ -25,7 +25,7 @@ public class Initialize {
 	public static void set_war_zone(Village[][] helper_grid){
 		int x = 0;
 		for(int y = 0; y < Constants.Y_communities; y++){
-			helper_grid[x][y].in_zone = true;
+			helper_grid[x][y].set_zone(true);
 		}
 	}
 	

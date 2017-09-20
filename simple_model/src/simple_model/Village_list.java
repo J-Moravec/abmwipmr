@@ -14,9 +14,6 @@ public class Village_list extends ArrayList<Village> {
 		for (Village village : this){
 			if (village.power() == 0 ){
 				village.kill();
-				if(village.in_zone){
-					this.move_zone(village.coord_x + 1, village.coord_y);
-				}
 				villages_to_remove.add(village);
 			}
 		}
@@ -24,26 +21,10 @@ public class Village_list extends ArrayList<Village> {
 	}
 	
 	
-	private void move_zone(int coord_x, int coord_y) {
-		if(coord_x <= Constants.X_communities){
-			for(Village village : this){
-				if(village.coord_x == coord_x && village.coord_y == coord_y){
-					if(village.total_pop() > 0){
-					village.in_zone = true;							
-					} else {
-						this.move_zone(coord_x + 1, coord_y);
-					}
-					break;
-				}
-			}
-		}
-	}
-	
-	
 	public int num_villages_in_zone(){
 	    int num_villages_in_zone = 0;
 		for(Village village : this){
-			if(village.in_zone){
+			if(village.is_in_zone()){
 				num_villages_in_zone += 1;
 			}
 		}

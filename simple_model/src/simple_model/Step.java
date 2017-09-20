@@ -24,8 +24,9 @@ public class Step {
 		
 		//Compute stats
 		Stats.every_step_stats(village_list);
-		Stats stats = new Stats();
+		//Stats stats = new Stats();
 		
+		/*
 		for(Village village : village_list){
 			if(village.total_pop() <= 0){
 				System.out.println("This shouldn't happen!");
@@ -34,9 +35,19 @@ public class Step {
 				System.out.println("Warriors are zero? This shouldn't happen!");
 			}
 		}
+		int number_of_villages_in_zone = 0;
+		for(Village village : village_list){
+			if(village.is_in_zone()){
+				number_of_villages_in_zone +=1;
+			}
+		}
 		System.out.println(village_list.size()
 				+ " communities, distance to zone: "
-				+ stats.mean_distance_to_zone() );
+				+ stats.mean_distance_to_zone()
+				+ " number of villages in zone: "
+				+ number_of_villages_in_zone);
+		System.out.println(stats.total_population() + " total population");
+		*/
 		
 		//add all clusters to context
 		Cluster.add_to_context(context);

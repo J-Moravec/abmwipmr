@@ -84,9 +84,10 @@ public enum Residence {
 	 * This change is performed only for patrilocal villages in zone.
 	 */
 	private boolean change_residence_test_warfare(Village village) {
+		Warfare warfare = new Warfare();
 		boolean result = false;
-		if(village.in_zone && village.get_residence() == Residence.PATRILOCAL && Utils.get_tick_count() > Constants.warming_phase){
-			double prob = Constants.warfare_loses / ((double) village.get_total_warriors());
+		if(village.is_in_zone() && village.get_residence() == Residence.PATRILOCAL && Utils.get_tick_count() > Constants.warming_phase){
+			double prob = warfare.warfare_loses() / ((double) village.get_total_warriors());
 			prob = Math.min(1, prob);
 			if(Utils.random_roll(prob) == 1){
 				result = true;
@@ -118,7 +119,7 @@ public enum Residence {
 			total_ratio += get_potential_partners_ratio(village, Gender.MALE, cohort);
 			total_ratio += get_potential_partners_ratio(village, Gender.FEMALE, cohort);
 		}
-		total_ratio = total_ratio/village.get_marriable_people(); //TODO danger of division by zero
+		total_ratio = total_ratio/village.get_marriable_people();
 		return(total_ratio);
 	}
 

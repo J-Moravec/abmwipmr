@@ -15,7 +15,7 @@ public class Warfare {
 	public Loses warfare_loses(Village village){
 		int[] single_warriors = get_warrior_cohorts(village.cohorts_male);
 		int[] married_warriors = get_warrior_cohorts(village.cohorts_pairs);	
-		int total_loses = Utils.prob_round(Constants.warfare_loses);
+		int total_loses = Utils.prob_round(warfare_loses());
 		
 		Loses warfare_loses = new Loses(single_warriors, married_warriors, total_loses);
 		return(warfare_loses);
@@ -39,14 +39,14 @@ public class Warfare {
 	}
 
 
-	public static double warfare_mortality(){
-		return Warfare.warfare_pressure()*Constants.warfare_mortality;
+
+	public double warfare_loses(){
+		return warfare_pressure()*Constants.warfare_mortality;
 	}
 	
 	
-	public static double warfare_pressure(){
+	public double warfare_pressure(){
 		int villages_in_zone = Village.village_list.num_villages_in_zone();
 		return Constants.warfare_pressure/(double) villages_in_zone;
 	}
-	
 }

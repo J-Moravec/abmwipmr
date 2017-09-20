@@ -16,7 +16,6 @@ public class Village {
 	public static Village_list village_list; // list of surviving villages
 	public int coord_x;
 	public int coord_y;
-	public boolean in_zone;
 	public int changed_residence;
 	public List<Village> neighbours;
 	public int[] cohorts_male = new int[Constants.cohorts_num];
@@ -24,6 +23,7 @@ public class Village {
 	public int[] cohorts_pairs = new int[Constants.cohorts_num];
 	private int[] temp_cohorts_male = new int[Constants.cohorts_num];
 	private int[] temp_cohorts_female = new int[Constants.cohorts_num];
+	private Zone zone;
 	private Residence residence;
 	private Warfare warfare;
 	private Growth growth;
@@ -41,6 +41,7 @@ public class Village {
 		this.set_residence(Residence.PATRILOCAL);
 		this.neighbours = new ArrayList<Village>();
 		this.changed_residence = 0;
+		this.zone = new Zone();
 		this.warfare = new Warfare();
 		this.growth = new Growth();
 		this.marriage = new Marriage();
@@ -57,7 +58,7 @@ public class Village {
 		string.append("    temp_cohorts_male: " + Arrays.toString(temp_cohorts_male) + "\n");
 		string.append("    temp_cohorts_female: " + Arrays.toString(this.temp_cohorts_female) + "\n");
 		string.append("    residence: " + this.residence.toString() + "\n");
-		string.append("    in_zone: " + this.in_zone + "\n");
+		string.append("    in_zone: " + this.is_in_zone() + "\n");
 		string.append("  }\n");
 		string.append("  Derived variables: {\n");
 		string.append("    power: " + this.power() + "\n");
@@ -66,6 +67,16 @@ public class Village {
 		string.append("    marriable people: " + this.get_marriable_people() + "\n");
 		string.append("  }\n}\n");
 		return string.toString();
+	}
+	
+	
+	public boolean is_in_zone() {
+		return this.zone.is_in_zone();
+	}
+
+	
+	public void set_zone(boolean zone){
+		this.zone.set_zone(zone);
 	}
 	
 	
@@ -83,7 +94,7 @@ public class Village {
 	public int total_pop() {
 		int sum = Utils.sum_vec(this.cohorts_female)
 				+ Utils.sum_vec(this.cohorts_male)
-				+ Utils.sum_vec(this.cohorts_pairs);
+				+ 2*Utils.sum_vec(this.cohorts_pairs);
 		return sum;
 	}
 	
@@ -94,12 +105,21 @@ public class Village {
 
 	
 	public void kill() {
-		this.in_zone = false;
+		if(this.is_in_zone()){
+			this.set_zone(false);
+			this.move_zone();
+		}
+		
 		for(int i = 0; i < Constants.cohorts_num; i++){
 			this.cohorts_male[i] = 0;
 			this.cohorts_female[i] = 0;
 			this.cohorts_pairs[i] = 0;
 		}
+	}
+
+	
+	private void move_zone(){
+		this.zone.move_zone(this);
 	}
 	
 	

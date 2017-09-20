@@ -28,7 +28,7 @@ public class Cluster {
 		double x_sum = 0;
 		int num_in_zone = 0;
 		for(Village village : this.cluster_list){
-			if(village.in_zone){
+			if(village.is_in_zone()){
 				x_sum += Constants.X_communities - village.coord_x;
 				num_in_zone += 1;
 			}
@@ -45,7 +45,7 @@ public class Cluster {
 		double var = 0;
 		int num_in_zone = 0;
 		for(Village village : this.cluster_list){
-			if(village.in_zone){
+			if(village.is_in_zone()){
 				var += Math.pow(Constants.X_communities - village.coord_x - mean, 2);
 				num_in_zone += 1;
 			}

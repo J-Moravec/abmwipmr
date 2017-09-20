@@ -49,7 +49,7 @@ public class Growth {
 		
 		//others
 		// Before warming phase, there are no warfare deaths. After warming phase, warfare deaths are allowed:
-		if(village.in_zone && Utils.get_tick_count() > Constants.warming_phase){
+		if(village.is_in_zone() && Utils.get_tick_count() > Constants.warming_phase){
 			Loses warfare_loses = village.get_warfare_loses();
 			for(int i=1; i < Constants.cohorts_num; i++){
 				new_cohorts_male[i] = village.cohorts_male[i-1] - warfare_loses.single_warrior_loses[i-1];

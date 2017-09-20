@@ -86,7 +86,7 @@ public class Stats {
 		
 		double x_sum = 0;
 		for(Village village : Village.village_list){
-			if(village.in_zone){
+			if(village.is_in_zone()){
 				// coords starts from 0 but are in opposite numbering
 				// to transform it, we must take:
 				// X_communities - coord_x
@@ -106,7 +106,7 @@ public class Stats {
 		double mean = mean_distance_to_zone();
 		double var = 0;
 		for(Village village : Village.village_list){
-			if(village.in_zone){
+			if(village.is_in_zone()){
 				var += Math.pow(Constants.X_communities - village.coord_x - mean, 2);
 			}
 			
