@@ -19,7 +19,6 @@ public class Constants {
 	public static double warming_phase = 100;
 	
 	//temporally fixed
-	public static int carrying_capacity = 500;
 	public static int X_communities=5; //fixed, like capacity of environment (possible parametrisation to explore effect of population size)
 	public static int Y_communities=10; //fixed, like capacity of environment (possible parametrisation to explore effect of population size and zone size)
 		
@@ -27,12 +26,13 @@ public class Constants {
 	//variables
 	public static double growth_rate = 0.1;
 	public static double newborn_male_bias = 116; //number of born males per 100 born females
-	public static int warfare_pressure = 2200; //size of enemy population (number of soldiers, to be precise)
+	public static int warfare_pressure = 1000; //size of enemy population (number of soldiers, to be precise)
 	public static double yearly_warfare_mortality = 0.00472;
 		//yearly_warfare_mortality and warfare_pressure currently form single derived parameter
 	public static double preferred_marriage_weight = 0.9;
 	public static int change_residence_pause = 6; //after change, another change is not allowed for this many steps
-	
+	public static int carrying_capacity = 500;
+
 	
 	//derived parameters
 	public static double[] growth_rate_vec = Utils.scalar_multiply(growth_rate, growth_cohorts);

@@ -41,12 +41,6 @@ public class Warfare {
 
 
 	public double warfare_loses(){
-		return warfare_pressure()*Constants.warfare_mortality;
-	}
-	
-	
-	public double warfare_pressure(){
-		int villages_in_zone = Village.village_list.num_villages_in_zone();
-		return Constants.warfare_pressure/(double) villages_in_zone;
-	}
+		return Constants.warfare_loses;
+	}	
 }

@@ -11,13 +11,15 @@ public class Initialize {
 		//Villages that are on left are on war zone
 		//set population to all villages to Constants.start_pop
 		//add neighbours
+		Constants.init_derived_parameter();
+
 		Neighbours.add_neighbours(village_list, helper_grid);
 		set_war_zone(helper_grid);
 		set_population(village_list);
 		Village.village_list = village_list;
 		Stats.first_total_switch = 0;
 		Stats.time_of_extinction = 0;
-		Residence.num_changes = 0;
+		Residence.num_changes = 0;		
 	}
 	
 	

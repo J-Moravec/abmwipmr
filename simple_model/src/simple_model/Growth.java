@@ -76,6 +76,9 @@ public class Growth {
 				Utils.vec_multiply(Constants.growth_rate_vec, village.cohorts_pairs)
 				* (1 - ((double) total_pop) / Constants.carrying_capacity)
 				);
+		if(newborns < 0){
+			newborns = 0;
+		}
 		return(newborns);
 	}
 	
@@ -93,7 +96,7 @@ public class Growth {
 			return 0;
 		}
 		double males_prob = Constants.newborn_gender_percentage[0];
-		//System.out.println(total_newborns);
+		//System.out.println("Total newborns: " + total_newborns + ", males_prob:" + males_prob);
 		Binomial binomial = RandomHelper.createBinomial(total_newborns, males_prob);
 		int num_males = binomial.nextInt();
 		return num_males;

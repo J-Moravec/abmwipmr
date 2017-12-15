@@ -78,6 +78,44 @@ public class Stats {
 		return Village.village_list.size();
 	}
 	
+	public double mean_pop_in_zone(){
+		double villages_in_zone = 0;
+		double sum_pop_villages_in_zone = 0;
+		double mean_pop_in_zone = 0;
+		
+		for(Village village : Village.village_list){
+			if(village.is_in_zone()){
+				villages_in_zone += 1;
+				sum_pop_villages_in_zone = village.total_pop();
+			}
+		}
+		
+		if(villages_in_zone != 0){
+			mean_pop_in_zone = sum_pop_villages_in_zone/villages_in_zone;
+		}
+		return mean_pop_in_zone;
+	}
+	
+	
+	public double mean_pop_not_in_zone(){
+		double villages_not_in_zone = 0;
+		double sum_pop_villages_not_in_zone = 0;
+		double mean_pop_not_in_zone = 0;
+		
+		for(Village village : Village.village_list){
+			if(!village.is_in_zone()){
+				villages_not_in_zone +=1;
+				sum_pop_villages_not_in_zone = 0;
+			}
+		}
+		
+		if(villages_not_in_zone != 0){
+			mean_pop_not_in_zone = sum_pop_villages_not_in_zone / villages_not_in_zone;
+		}
+		
+		return mean_pop_not_in_zone;
+	}
+	
 	
 	public double mean_distance_to_zone(){
 		if(Village.village_list.size() == 0){

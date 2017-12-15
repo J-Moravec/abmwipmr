@@ -9,5 +9,6 @@ public class Parameters {
 		Constants.yearly_warfare_mortality = (double)params.getValue("yearly_warfare_mortality");
 		Constants.preferred_marriage_weight = (double)params.getValue("preferred_marriage_weight");
 		Constants.change_residence_pause = (int)params.getValue("change_residence_pause");
+		Constants.carrying_capacity = (int)params.getValue("carrying_capacity");
 	}
 }

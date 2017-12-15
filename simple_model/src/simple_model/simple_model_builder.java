@@ -47,7 +47,6 @@ public class simple_model_builder implements ContextBuilder<Object> {
 		Parameters.init_params(params);
 		Constants.init_derived_parameter();
 		Step.context = context;
-		
 		Initialize.init(village_list, helper_grid);
 		RunEnvironment.getInstance().endAt(Constants.number_of_generations);
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
