@@ -86,7 +86,9 @@ public enum Residence {
 	private boolean change_residence_test_warfare(Village village) {
 		Warfare warfare = new Warfare();
 		boolean result = false;
-		if(village.is_in_zone() && Utils.get_tick_count() > Constants.warming_phase){
+		if(village.is_in_zone() &&
+				Utils.get_tick_count() > Constants.warming_phase &&
+				Constants.allow_matrilocal == 1){
 			double prob = warfare.warfare_loses() / ((double) village.get_total_warriors());
 			prob = Math.min(1, prob);
 			if(Utils.random_roll(prob) == 1){

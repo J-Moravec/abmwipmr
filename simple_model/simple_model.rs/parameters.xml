@@ -7,7 +7,7 @@
 		/>
 
 	<parameter name="growth_rate" displayName="growth_rate" type="double" 
-		defaultValue="0.01" 
+		defaultValue="0.5" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 		/>
@@ -20,7 +20,7 @@
 		/>
 
 	<parameter name="warfare_pressure" displayName="warfare_pressure" type="int" 
-		defaultValue="2000" 
+		defaultValue="200" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 		/>
@@ -47,6 +47,34 @@
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 	/>
 	
+	<parameter name="carrying_capacity" displayName="cappacity of environment" type="int" 
+		defaultValue="500" 
+		isReadOnly="false" 
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+	/>
+
+
+	<parameter name="sizeX" displayName="sizeX -- depth" type="int"
+		defaultValue="5"
+		isReadOnly="false"
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+	/>
+
+
+	<parameter name="sizeY" displayName="sizeY -- width" type="int"
+		defaultValue="10"
+		isReadOnly="false"
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+	/>
+	
+	
+	<parameter name="allow_matrilocal" displayName="allow_matrilocal" type="int"
+		defaultValue="1"
+		isReadOnly="false"
+		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+	/>
+
+
 </parameters>
 
 

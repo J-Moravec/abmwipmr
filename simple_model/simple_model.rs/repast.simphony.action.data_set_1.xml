@@ -88,6 +88,25 @@
         <methodName>number_of_networks</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+  
+    <entry>
+      <string>mean_pop_in_zone</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>mean_pop_in_zone</id>
+        <className>simple_model.Stats</className>
+        <methodName>mean_pop_in_zone</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    
+    <entry>
+      <string>mean_pop_not_in_zone</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>mean_pop_not_in_zone</id>
+        <className>simple_model.Stats</className>
+        <methodName>mean_pop_not_in_zone</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    
   </methodDataSources>
   <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>

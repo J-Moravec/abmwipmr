@@ -10,5 +10,8 @@ public class Parameters {
 		Constants.preferred_marriage_weight = (double)params.getValue("preferred_marriage_weight");
 		Constants.change_residence_pause = (int)params.getValue("change_residence_pause");
 		Constants.carrying_capacity = (int)params.getValue("carrying_capacity");
+		Constants.X_communities = (int)params.getValue("sizeX");
+		Constants.Y_communities = (int)params.getValue("sizeY");
+		Constants.allow_matrilocal = (int)params.getValue("allow_matrilocal");
 	}
 }

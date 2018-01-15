@@ -18,12 +18,13 @@ public class Constants {
 	public static double number_of_generations = 1100;
 	public static double warming_phase = 100;
 	
-	//temporally fixed
+	// size -- is now variable
 	public static int X_communities=5; //fixed, like capacity of environment (possible parametrisation to explore effect of population size)
 	public static int Y_communities=10; //fixed, like capacity of environment (possible parametrisation to explore effect of population size and zone size)
 		
 	
 	//variables
+	
 	public static double growth_rate = 0.1;
 	public static double newborn_male_bias = 116; //number of born males per 100 born females
 	public static int warfare_pressure = 1000; //size of enemy population (number of soldiers, to be precise)
@@ -33,6 +34,7 @@ public class Constants {
 	public static int change_residence_pause = 6; //after change, another change is not allowed for this many steps
 	public static int carrying_capacity = 500;
 
+	public static int allow_matrilocal = 1; // allow change to matrilocality during warfare
 	
 	//derived parameters
 	public static double[] growth_rate_vec = Utils.scalar_multiply(growth_rate, growth_cohorts);
