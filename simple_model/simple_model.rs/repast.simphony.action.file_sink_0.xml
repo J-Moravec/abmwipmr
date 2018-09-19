@@ -1,0 +1,21 @@
+<repast.simphony.data2.engine.FileSinkDescriptor>
+  <name>ModelStatsSink</name>
+  <dataSet>ModelStats</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>tick</string>
+    <string>village_count</string>
+    <string>total_population</string>
+    <string>number_of_switches</string>
+    <string>mean_distance_to_zone</string>
+    <string>var_distance_to_zone</string>
+    <string>matrilocal_proportion</string>
+    <string>males_proportion</string>
+    <string>warrior_proportion</string>
+    <string>mean_pop_in_zone</string>
+    <string>mean_pop_not_in_zone</string>
+  </sourceIds>
+  <fileName>ModelOutput.txt</fileName>
+  <addTimeStamp>false</addTimeStamp>
+</repast.simphony.data2.engine.FileSinkDescriptor>

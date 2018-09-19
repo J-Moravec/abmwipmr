@@ -1,7 +1,13 @@
-## simple_model -- Model of post-marital residence change
+## simple_model -- An agent-based model of warfare-induced residence change
 
-Model for post-marital residence change. This model simulate community of villages interactin with each others be mean of marriages and facing attacks from another community (that is not simulated). This leads to switch towards matrilocality on bordering communities and than, later, switch towards matrilocality of whole community.
+This is an agent-based model of warfare-induced residence change. This was developed for my thesis *Computational approaches to the study of post-marital residence*.
 
-This scenario was described by William Divale in his *Matrilocal Residence in Pre-Literate Society* (1984) and is supposed to describe mechanism for change of post-marital residence towards matrilocality (and than back to patrilocality) and thus explain at least this variance of post-marital residence.
+### Implementation
 
-This model is called '''simple_model''' to characterize his relative simplicity. It assume quite a strict conditions with a low amount of interaction between individual (restricted only to marriages in stage)
+Model is implemented in Java using [repast simphony](https://repast.github.io/) framework.
+
+### Description
+This model simulate a community of villages which is under attack by another non-simulated community. This cause villages on the border of the community to change from patrilocal to matrilocal residence to replenish the number of males (and thus warriors) through marriage. This mechanism was suggested by W. T. Divale in *Matrilocal Residence in Pre-Literate Society* (1984). The suggested model also describes migration, internal warfare and cycle by which society turns back from matrilocal to patrilocal residence. These steps are however not implemented. The model was called '''simple_model''' to characterize this notion during model development.
+
+### Usage
+To run this model, you will need Java (1.8), the repast simphony framework (2.3.1) and Eclipse (Kepler version), since the repast framework integrates into (a specific version) of Eclipse IDE. See [repast simphony documentation](https://repast.github.io/) for more information.
