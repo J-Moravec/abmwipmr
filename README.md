@@ -1,4 +1,4 @@
-## simple_model -- An agent-based model of warfare-induced residence change
+## An agent-based model of warfare-induced residence change
 
 This is an agent-based model of warfare-induced residence change. This was developed for my thesis *Computational approaches to the study of post-marital residence*.
 
