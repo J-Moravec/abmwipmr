@@ -17,6 +17,13 @@ public class simple_model_builder implements ContextBuilder<Object> {
 	@Override
 	public Context<Object> build(Context<Object> context) {
 		context.setId("simple_model");
+
+
+		repast.simphony.parameter.Parameters params = RunEnvironment.getInstance().getParameters();
+		Parameters.init_params(params);
+		Constants.init_derived_parameter();		
+
+
 		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.
 				createContinuousSpaceFactory(null);
 		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace(
@@ -27,7 +34,9 @@ public class simple_model_builder implements ContextBuilder<Object> {
 				new double[] {Constants.space_size_X, Constants.space_size_Y},
 				new double[] {0, 0}
 				);
-		
+
+
+		// Init grid and villages
 		Village[][] helper_grid = new Village[Constants.X_communities][Constants.Y_communities];
 		Village_list village_list = new Village_list();
 		for(int x = 0; x < Constants.X_communities; x++){
@@ -42,11 +51,10 @@ public class simple_model_builder implements ContextBuilder<Object> {
 							);
 				}
 			}
+
+
 		context.add(new Stats());
-		repast.simphony.parameter.Parameters params = RunEnvironment.getInstance().getParameters();
-		Parameters.init_params(params);
-		Constants.init_derived_parameter();
-		Step.context = context;
+		Step.context = context;		
 		Initialize.init(village_list, helper_grid);
 		RunEnvironment.getInstance().endAt(Constants.number_of_generations);
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
@@ -54,7 +62,8 @@ public class simple_model_builder implements ContextBuilder<Object> {
 				1,1
 				);
 		schedule.schedule(schedule_params, this, "step", village_list);
-		
+
+
 		return context;
 	}
 	public void step(Village_list village_list){

@@ -73,7 +73,18 @@ public enum Residence {
 			change_warfare = change_residence_test_warfare(village);
 			change_marriage_partners = change_residence_test_partners(village);
 			
-			change = change_warfare || change_marriage_partners;
+			
+			if(village.get_residence() == Residence.MATRILOCAL){
+				// village is matrilocal,  warfare prevents change:
+				if(change_warfare){
+					change = false;
+				} else {
+					change = change_marriage_partners;
+				}
+			} else {
+				// village is patrilocal, original construct applies
+				change = change_warfare || change_marriage_partners;
+			}
 		}
 		
 		return change;
@@ -104,6 +115,11 @@ public enum Residence {
 		if (village.has_marriable_people()){
 			double total_ratio = get_potential_partners_total_ratio(village);
 			double prob = 1 - total_ratio;
+			prob = Math.min(prob, 1.0);
+			prob = Math.max(-1, prob); // Transform the matrilocal pressure into [-1, 1]
+			// modify according to constant pressure
+			prob += constant_pressure(village);
+			prob = Math.min(prob, 1.0);
 			if(prob > 0){
 				int roll = Utils.random_roll(prob);
 				if(roll == 1){
@@ -150,6 +166,24 @@ public enum Residence {
 			){
 		double marriage_weight = Marriage.marriage_weight(residence, target.get_residence());
 		return(target.get_cohort(gender, cohort) * marriage_weight);
+	}
+
+	
+	private double constant_pressure(Village village){
+		double constant_pressure = 0;
+		Residence residence = village.get_residence();
+		
+		if(residence == Residence.PATRILOCAL){
+			constant_pressure = Constants.constant_matrilocal_pressure;
+		} else if(residence == Residence.MATRILOCAL ){
+			constant_pressure = -Constants.constant_matrilocal_pressure;
+		} else {
+			throw new RuntimeException(
+					"Unexpected type of residence. Residence should be either matrilocal" +
+					" or patrilocal. This probably mean that village does not have set residence."
+					);
+		}
+		return constant_pressure;
 	}
 	
 	

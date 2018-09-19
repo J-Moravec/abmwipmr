@@ -13,5 +13,6 @@ public class Parameters {
 		Constants.X_communities = (int)params.getValue("sizeX");
 		Constants.Y_communities = (int)params.getValue("sizeY");
 		Constants.allow_matrilocal = (int)params.getValue("allow_matrilocal");
+		Constants.constant_matrilocal_pressure = (double)params.getValue("matrilocal_pressure");
 	}
 }

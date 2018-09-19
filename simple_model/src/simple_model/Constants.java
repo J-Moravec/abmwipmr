@@ -61,7 +61,7 @@ public class Constants {
 		warfare_loses =  warfare_pressure * warfare_mortality;
 	}
 	
-	
+	public static double constant_matrilocal_pressure = 0;
 	
 	//////////////////////////////////////
 	///////////////EXPLANATIONS///////////

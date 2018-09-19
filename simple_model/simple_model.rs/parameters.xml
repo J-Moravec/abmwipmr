@@ -30,7 +30,7 @@
 		defaultValue="0.00472" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-	/>
+	    />
 
 
 	<parameter name="preferred_marriage_weight" displayName="preferred_marriage_weight"
@@ -38,27 +38,27 @@
 		defaultValue="0.9" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-	/>
+	    />
 
 		
 	<parameter name="change_residence_pause" displayName="change_residence_pause" type="int" 
 		defaultValue="6" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-	/>
+        />
 	
 	<parameter name="carrying_capacity" displayName="cappacity of environment" type="int" 
 		defaultValue="500" 
 		isReadOnly="false" 
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-	/>
+        />
 
 
 	<parameter name="sizeX" displayName="sizeX -- depth" type="int"
 		defaultValue="5"
 		isReadOnly="false"
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-	/>
+	    />
 
 
 	<parameter name="sizeY" displayName="sizeY -- width" type="int"
@@ -74,7 +74,11 @@
 		converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 	/>
 
-
+	<parameter name="matrilocal_pressure" displayName="matrilocal_pressure" type="double"
+		defaultValue="1.0"
+		isReadOnly="false"
+		converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+	/>
 </parameters>
 
 
