@@ -1,7 +1,6 @@
 ## An agent-based model of warfare-induced residence change
 
-This is an agent-based model of warfare-induced residence change. This was developed for publication "An Agent-Based Model of Warfare-Induced
-Post-Marital Residence Change" (Moravec et al. 2019).
+This is an agent-based model of warfare-induced residence change. This was developed for publication [*Warfare induces post-marital residence change* (Moravec et al. 2019)](https://doi.org/10.1016/j.jtbi.2019.05.002).
 
 ### Implementation
 
